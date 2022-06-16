@@ -1,0 +1,59 @@
+<section class="login">
+  <main class="login__main">
+    <header class="logo">
+      <strong class="logo--strong">SCHEDULE </strong>
+      <span class="logo--normal">EASY</span>
+    </header>
+
+    <h1 class="title">Bem vindo</h1>
+    <div *ngIf="form">
+      <form class="form" [formGroup]="form">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName="email" />
+          <mat-error *ngIf="form.controls['email'].invalid">
+            {{ getEmailErrorMessage() }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'text' : 'password'"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Esconder senha'"
+            [attr.aria-pressed]="hide"
+            type="button"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.controls['password'].invalid">
+            {{ getPasswordErrorMessage() }}
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          type="submit"
+          color="primary"
+          mat-flat-button
+          [disabled]="form.invalid"
+          class="form__submit-button"
+        >
+          ENTRAR
+        </button>
+      </form>
+    </div>
+  </main>
+  <aside class="login__aside">
+    <img
+      src="/assets/images/calendar-colour.svg"
+      alt="Homem branco de cabelos e bigode pretos, está vestindo uma camisa de mangas curtas azul clara, calça azul escura e tênis branco. Ele está em pé em uma praça com banco de madeira e poste de luz, realizando pagamento online pelo seu celular."
+    />
+  </aside>
+</section>
