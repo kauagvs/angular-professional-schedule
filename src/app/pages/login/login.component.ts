@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +11,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   hide = false;
   form: FormGroup;
+  authStatus: string = '';
+  isAuthenticated: boolean = false;
 
-  constructor(private readonly fb: FormBuilder) {
+  constructor(
+    private readonly fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.form = {} as FormGroup;
   }
 
@@ -23,7 +31,6 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
-    console.log('Teste', this.form.controls['email'].status);
   }
 
   getEmailErrorMessage() {
@@ -41,5 +48,27 @@ export class LoginComponent implements OnInit {
       this.form.controls['email'].hasError('required') &&
       'Por favor insira uma senha!'
     );
+  }
+
+  login(): void {
+    let credentials = {
+      email: this.form.value.email,
+      password: this.form.value.password,
+    };
+
+    if (credentials.email && credentials.password) {
+      this.authService.authenticate(credentials).subscribe((status) => {
+        this.authStatus = status;
+        switch (this.authStatus) {
+          case 'success':
+            this.router.navigateByUrl('/specialties');
+            this.buildForm();
+            break;
+          case 'invalid':
+            this.buildForm();
+            break;
+        }
+      });
+    }
   }
 }
