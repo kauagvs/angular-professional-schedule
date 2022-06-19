@@ -12,8 +12,8 @@ const routes: Routes = [
     path: 'specialties',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./pages/specialties/specialties.module').then(
-        (m) => m.SpecialtiesModule
+      import('./pages/specialties/specialists.module').then(
+        (m) => m.SpecialistsModule
       ),
   },
 ];

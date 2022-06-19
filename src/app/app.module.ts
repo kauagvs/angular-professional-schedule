@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './pages/login/login.module';
-import { SpecialtiesModule } from './pages/specialties/specialties.module';
+import { SpecialistsModule } from './pages/specialties/specialists.module';
 
 registerLocaleData(localePt);
 
@@ -22,7 +22,7 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     AppRoutingModule,
     LoginModule,
-    SpecialtiesModule,
+    SpecialistsModule,
   ],
   providers: [
     {
