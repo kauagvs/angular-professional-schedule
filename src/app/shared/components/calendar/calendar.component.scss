@@ -1,0 +1,106 @@
+@import "/src/assets/styles/variables.scss";
+
+.calendar-container {
+  &__timezone {
+    .timezone {
+      background-color: $purple-500;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+
+      &__title {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      &__description {
+        font-size: 14px;
+      }
+    }
+
+    .calendar-control {
+      display: flex;
+      align-items: center;
+
+      background-color: $white;
+      padding: 10px;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+
+      margin-bottom: 20px;
+
+      a {
+        background: #637078;
+        border-radius: 15px;
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        padding-top: 4px;
+
+        color: $white;
+
+        mat-icon {
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+
+      .days {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #4d5c65;
+
+        .week-day {
+          font-size: 10px;
+        }
+
+        .month-day {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  &__hour {
+    display: flex;
+    justify-content: center;
+    min-height: 200px;
+    max-height: 200px;
+    overflow-x: auto;
+    width: 350px;
+
+    justify-content: space-between;
+
+    .column {
+      text-align: center;
+      text-transform: uppercase;
+      width: 23%;
+
+      :hover {
+        color: #fff;
+        background-color: $purple-500;
+      }
+
+      > div {
+        color: #4d5c65;
+        display: block;
+        border-radius: 2px;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 5px;
+        background-color: #e1e6ec;
+        margin-bottom: 10px;
+
+        cursor: pointer;
+      }
+    }
+  }
+}

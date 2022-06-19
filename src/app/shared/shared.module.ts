@@ -4,10 +4,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, CalendarComponent],
   imports: [CommonModule, MatIconModule, MatMenuModule, RouterModule],
-  exports: [HeaderComponent],
+  exports: [HeaderComponent, CalendarComponent],
 })
 export class SharedModule {}
