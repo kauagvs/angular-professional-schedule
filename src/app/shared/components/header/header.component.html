@@ -1,0 +1,30 @@
+<header>
+  <nav class="navbar">
+    <div class="navbar__logo">
+      <strong class="navbar__logo--strong">SCHEDULE </strong>
+      <span class="navbar__logo--normal">EASY</span>
+    </div>
+
+    <div class="navbar__links">
+      <ul>
+        <li>
+          <a routerLinkActive="active" routerLink="/specialties">
+            Nossos Especialistas
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar__user">
+      <a mat-button [matMenuTriggerFor]="profileMenu">
+        <span> Olá, {{ userName }} </span>
+
+        <mat-icon class="icon-display">account_circle</mat-icon>
+      </a>
+    </div>
+
+    <mat-menu #profileMenu="matMenu" xPosition="after">
+      <button mat-menu-item (click)="auth.logout()">Logout</button>
+    </mat-menu>
+  </nav>
+</header>

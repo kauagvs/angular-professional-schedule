@@ -65,7 +65,18 @@ describe('AuthService', () => {
     spyOn(service['router'], 'navigateByUrl');
 
     service.logout();
-    expect(localStorage.removeItem).toHaveBeenCalledWith('sessionAuthToken');
+    expect(localStorage.clear).toHaveBeenCalled();
     expect(service['router'].navigateByUrl).toHaveBeenCalledWith('/login');
+  });
+
+  it('should return username', () => {
+    let key = 'sessionUserName';
+    let value = 'username';
+
+    localStorage.setItem(key, JSON.stringify(value));
+
+    let result = service.getUserName();
+
+    expect(result).toEqual(value);
   });
 });

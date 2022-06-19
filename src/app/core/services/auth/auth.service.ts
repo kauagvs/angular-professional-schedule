@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user';
 import { environment } from 'src/environments/environment';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -31,6 +32,9 @@ export class AuthService {
               'sessionAuthToken',
               JSON.stringify(sessionAuthToken)
             );
+
+            localStorage.setItem('sessionUserName', JSON.stringify(user.name));
+
             return 'success';
           } else {
             return 'invalid';
@@ -40,16 +44,21 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    let userSession = localStorage.getItem('sessionAuthToken') || null;
-
-    if (!!userSession) {
-      return true;
-    }
-    return false;
+    return !!localStorage.getItem('sessionAuthToken');
   }
 
   logout(): void {
-    localStorage.removeItem('sessionAuthToken');
+    localStorage.clear();
     this.router.navigateByUrl('/login');
+  }
+
+  getUserName(): String | null {
+    const userName = localStorage.getItem('sessionUserName');
+
+    if (userName) {
+      return JSON.parse(userName);
+    }
+
+    return null;
   }
 }
