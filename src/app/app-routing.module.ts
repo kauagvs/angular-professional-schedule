@@ -9,7 +9,7 @@ const routes: Routes = [
       import('./pages/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'specialties',
+    path: 'specialists',
     canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/specialties/specialists.module').then(

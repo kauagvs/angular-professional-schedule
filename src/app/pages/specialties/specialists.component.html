@@ -1,22 +1,19 @@
 <app-header></app-header>
 
 <section>
-  <div class="card">
+  <div class="card" *ngFor="let specialist of specialists">
     <div class="specialist">
       <div class="info-container">
         <div class="avatar">
-          <img
-            src="https://robohash.org/possimusautemnecessitatibus.png?size=150x150&set=set1"
-            alt=""
-          />
+          <img src="{{ specialist.image }}" />
         </div>
         <div class="info">
-          <h2>Robô Amarelo</h2>
+          <h2>{{ specialist.name }}</h2>
           <div class="crp">
-            <span>CRP: 09/14237</span>
+            <span>CRP: {{ specialist.crp }}</span>
             <span>
               <span> | </span>
-              <span>Goiás</span>
+              <span>{{ specialist.uf }}</span>
             </span>
           </div>
 
@@ -26,42 +23,39 @@
             <mat-icon>star</mat-icon>
             <mat-icon>star</mat-icon>
             <mat-icon>star</mat-icon>
-            <span> (1 avaliações) </span>
+            <span> ({{ specialist.rating }} avaliações) </span>
           </div>
 
           <div class="languages-container">
-            <span>Idioma(s): Português</span>
+            <span
+              >Idioma(s):
+              <span *ngFor="let language of specialist.languages">
+                {{ language }} |
+              </span>
+            </span>
           </div>
 
           <div class="specialties-container">
             <ul>
-              <li>Relacionamentos / Conflitos Familiares</li>
-              <li>Alterações de Humor</li>
-              <li>Adolescência</li>
+              <li *ngFor="let specialties of specialist.specialties">
+                {{ specialties }}
+              </li>
             </ul>
           </div>
 
           <div class="price-container">
             <p>
-              <strong> R$ 125 </strong>
+              <strong> {{ specialist.value | currency: "BRL" }} </strong>
               <span> / 50 minutos </span>
             </p>
           </div>
         </div>
       </div>
 
-      <app-calendar></app-calendar>
+      <app-calendar [schedule]="specialist.schedule"></app-calendar>
     </div>
     <div class="professional-summary">
-      Veniam Lorem eu voluptate est officia sint. Voluptate non eiusmod anim
-      nulla. Ad cillum ut non mollit exercitation deserunt minim. Do non
-      deserunt veniam voluptate. Exercitation incididunt eu labore do voluptate
-      cillum aliqua culpa sit est. Enim sit elit aliqua sint elit nulla aliquip
-      nulla culpa fugiat amet eu aute officia. Ut nulla ut ex enim ipsum eu
-      reprehenderit commodo nulla irure laborum ullamco mollit. Non velit nulla
-      sit consectetur id exercitation elit nisi magna. Reprehenderit quis aute
-      cillum sit laboris anim fugiat officia ullamco ad non. Nostrud Lorem velit
-      eiusmod cillum minim aliquip.
+      {{ specialist.description }}
     </div>
     <div class="button-container">
       <button class="secondary-button">
