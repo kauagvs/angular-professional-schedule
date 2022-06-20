@@ -13,3 +13,13 @@
     </button>
   </div>
 </div>
+
+<div class="button-container" *ngIf="!noMorePosts">
+  <button
+    class="secondary-button"
+    (click)="loadMoreSpecialists()"
+    [disabled]="noMorePosts"
+  >
+    Carregar Mais
+  </button>
+</div>

@@ -8,6 +8,10 @@ import { SpecialistsService } from 'src/app/core/services/specialists/specialist
 })
 export class SpecialistListComponent implements OnInit {
   specialists: any = [];
+  allSpecialists: any = [];
+  page: number = 0;
+  specialistsPerPage: number = 2;
+  noMorePosts: boolean = false;
 
   constructor(private specialistsService: SpecialistsService) {}
 
@@ -17,7 +21,24 @@ export class SpecialistListComponent implements OnInit {
 
   private getAll(): void {
     this.specialistsService.getAllSpecialist().subscribe((specialists) => {
-      this.specialists = specialists || [];
+      this.allSpecialists = specialists;
+      this.specialists = specialists.slice(this.page, this.specialistsPerPage);
     });
+  }
+
+  loadMoreSpecialists() {
+    const nextPage = this.page + this.specialistsPerPage;
+
+    const nextSpecialists = this.allSpecialists.slice(
+      nextPage,
+      nextPage + this.specialistsPerPage
+    );
+
+    this.page = nextPage;
+
+    this.noMorePosts =
+      this.page + this.specialistsPerPage >= this.allSpecialists.length;
+
+    this.specialists.push(...nextSpecialists);
   }
 }
