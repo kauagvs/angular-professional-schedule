@@ -7,12 +7,14 @@ import { SpecialistsComponent } from './specialists.component';
 import { SpecialistDetailComponent } from './specialist-detail/specialist-detail.component';
 import { SpecialistListComponent } from './specialist-list/specialist-list.component';
 import { RouterModule } from '@angular/router';
+import { SpecialistInfoComponent } from './components/specialist-info/specialist-info.component';
 
 @NgModule({
   declarations: [
     SpecialistsComponent,
     SpecialistListComponent,
     SpecialistDetailComponent,
+    SpecialistInfoComponent,
   ],
   imports: [
     CommonModule,

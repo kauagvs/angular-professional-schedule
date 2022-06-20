@@ -1,53 +1,6 @@
 <div class="card" *ngFor="let specialist of specialists">
   <div class="specialist">
-    <div class="info-container">
-      <div class="avatar">
-        <img src="{{ specialist.image }}" />
-      </div>
-      <div class="info">
-        <h2>{{ specialist.name }}</h2>
-        <div class="crp">
-          <span>CRP: {{ specialist.crp }}</span>
-          <span>
-            <span> | </span>
-            <span>{{ specialist.uf }}</span>
-          </span>
-        </div>
-
-        <div class="rating-container">
-          <mat-icon>star</mat-icon>
-          <mat-icon>star</mat-icon>
-          <mat-icon>star</mat-icon>
-          <mat-icon>star</mat-icon>
-          <mat-icon>star</mat-icon>
-          <span> ({{ specialist.rating }} avaliações) </span>
-        </div>
-
-        <div class="languages-container">
-          <span
-            >Idioma(s):
-            <span *ngFor="let language of specialist.languages">
-              {{ language }} |
-            </span>
-          </span>
-        </div>
-
-        <div class="specialties-container">
-          <ul>
-            <li *ngFor="let specialties of specialist.specialties">
-              {{ specialties }}
-            </li>
-          </ul>
-        </div>
-
-        <div class="price-container">
-          <p>
-            <strong> {{ specialist.value | currency: "BRL" }} </strong>
-            <span> / 50 minutos </span>
-          </p>
-        </div>
-      </div>
-    </div>
+    <app-specialist-info [specialist]="specialist"></app-specialist-info>
 
     <app-calendar [schedule]="specialist.schedule"></app-calendar>
   </div>
