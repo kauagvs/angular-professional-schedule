@@ -9,11 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './pages/login/login.module';
 import { SpecialistsModule } from './pages/specialists/specialists.module';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 registerLocaleData(localePt);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     CommonModule,
     HttpClientModule,
