@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
         this.authStatus = status;
         switch (this.authStatus) {
           case 'success':
-            this.router.navigateByUrl('/specialties');
+            this.router.navigateByUrl('/specialists');
             this.buildForm();
             break;
           case 'invalid':

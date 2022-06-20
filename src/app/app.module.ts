@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './pages/login/login.module';
-import { SpecialistsModule } from './pages/specialties/specialists.module';
+import { SpecialistsModule } from './pages/specialists/specialists.module';
 
 registerLocaleData(localePt);
 

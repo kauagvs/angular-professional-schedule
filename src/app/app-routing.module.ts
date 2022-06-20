@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'specialists',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./pages/specialties/specialists.module').then(
+      import('./pages/specialists/specialists.module').then(
         (m) => m.SpecialistsModule
       ),
   },

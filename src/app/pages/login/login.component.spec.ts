@@ -93,7 +93,7 @@ describe('LoginComponent', () => {
       expect(component.login).toHaveBeenCalled();
     });
 
-    it('should navigate to specialties when authenticated', () => {
+    it('should navigate to specialists when authenticated', () => {
       spyOn(router, 'navigateByUrl');
       spyOn(component['authService'], 'authenticate').and.returnValue(
         of('success')
@@ -107,7 +107,7 @@ describe('LoginComponent', () => {
       expect(component['authService'].authenticate).toHaveBeenCalledWith(
         credentials
       );
-      expect(router.navigateByUrl).toHaveBeenCalledWith('/specialties');
+      expect(router.navigateByUrl).toHaveBeenCalledWith('/specialists');
     });
   });
 });
