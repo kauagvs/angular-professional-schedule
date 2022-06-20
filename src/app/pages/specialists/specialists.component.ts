@@ -8,17 +8,7 @@ import { SpecialistsService } from 'src/app/core/services/specialists/specialist
   styleUrls: ['./specialists.component.scss'],
 })
 export class SpecialistsComponent implements OnInit {
-  specialists: any = [];
+  constructor() {}
 
-  constructor(private specialistsService: SpecialistsService) {}
-
-  ngOnInit(): void {
-    this.getAll();
-  }
-
-  private getAll(): void {
-    this.specialistsService.getAllSpecialist().subscribe((specialists) => {
-      this.specialists = specialists || [];
-    });
-  }
+  ngOnInit(): void {}
 }
