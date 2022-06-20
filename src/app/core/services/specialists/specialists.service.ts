@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { User } from 'src/app/shared/models/user';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,5 +14,9 @@ export class SpecialistsService {
 
   getAllSpecialist(): Observable<any> {
     return this.http.get(`${this.BASE_API_URL}/specialists`);
+  }
+
+  getSpecialistDetails(id: number) {
+    return this.http.get(`${this.BASE_API_URL}/specialists/${id}`);
   }
 }

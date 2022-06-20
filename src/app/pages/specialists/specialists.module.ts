@@ -6,6 +6,7 @@ import { SpecialistsRoutingModule } from './specialists-routing.module';
 import { SpecialistsComponent } from './specialists.component';
 import { SpecialistDetailComponent } from './specialist-detail/specialist-detail.component';
 import { SpecialistListComponent } from './specialist-list/specialist-list.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SpecialistListComponent } from './specialist-list/specialist-list.compo
     SpecialistsRoutingModule,
     MatIconModule,
     SharedModule,
+    RouterModule,
   ],
 })
 export class SpecialistsModule {}
